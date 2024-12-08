@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            width: 300px;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #333;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .login-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+        }
+    </style>
+    <script>
+        function validateLogin(event) {
+            // Store valid credentials
+            const storedUsername = "admin";
+            const storedPassword = "password123";
+
+            // Get user input
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check if input matches stored credentials
+            if (username === storedUsername && password === storedPassword) {
+                // Redirect to index.html if login is correct
+                window.location.href = "index.html"; // Correct path
+            } else {
+                // Show error message if login fails
+                alert("Incorrect username or password");
+                event.preventDefault(); // Prevent form from submitting
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form onsubmit="validateLogin(event)">
+            <input type="text" id="username" name="username" placeholder="Username" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+</body>
+</html>
